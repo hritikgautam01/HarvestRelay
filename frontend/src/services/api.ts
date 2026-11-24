@@ -1,5 +1,13 @@
 import { Listing, Claim, SDGMetrics, User, AuditLog } from '../types';
 
+// Automatically bypass ngrok interstitial warning for all app fetches
+const originalFetch = window.fetch;
+window.fetch = (input: RequestInfo | URL, init?: RequestInit) => {
+  const headers = new Headers(init?.headers || {});
+  headers.set('ngrok-skip-browser-warning', 'true');
+  return originalFetch(input, { ...init, headers });
+};
+
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:3001/api'
   : '/api';
