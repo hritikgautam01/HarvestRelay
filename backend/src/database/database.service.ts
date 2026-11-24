@@ -39,7 +39,9 @@ export class DatabaseService implements OnModuleInit {
     }
 
     // Default to zero-config local SQLite
-    const dataDir = path.resolve(process.cwd(), 'data');
+    const backendDataDir = path.resolve(process.cwd(), 'backend', 'data');
+    const localDataDir = path.resolve(process.cwd(), 'data');
+    const dataDir = fs.existsSync(path.resolve(process.cwd(), 'backend')) ? backendDataDir : localDataDir;
     if (!fs.existsSync(dataDir)) {
       fs.mkdirSync(dataDir, { recursive: true });
     }
