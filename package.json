@@ -1,0 +1,10 @@
+{
+  "name": "surplus-food-redistribution-matcher",
+  "version": "1.0.0",
+  "description": "Surplus Food Redistribution Matcher for Local Eateries - SDG 12 Project",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "start:backend": "npm --prefix backend run start:dev",
+    "start:frontend": "npm --prefix frontend run dev"
+  }
+}

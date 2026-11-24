@@ -1,0 +1,14 @@
+# Frontend Dependencies & Output
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
